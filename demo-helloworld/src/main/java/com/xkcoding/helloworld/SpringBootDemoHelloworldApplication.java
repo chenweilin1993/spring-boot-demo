@@ -36,4 +36,11 @@ public class SpringBootDemoHelloworldApplication {
         }
         return StrUtil.format("Hello, {}!", who);
     }
+    @GetMapping("/test")
+    public String test(@RequestParam(required = false, name = "test") String test) {
+        if (StrUtil.isBlank(test)) {
+            test = "Struggle";
+        }
+        return  StrUtil.format("你好呀，{}！", test);
+    }
 }
